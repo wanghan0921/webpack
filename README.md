@@ -96,6 +96,8 @@ webpack 中有几个不同的选项, 可以帮助我们的代码发生变化后�
 
 
 #### 2.3.1 wacth
+
+  **webpack is watching the files…**
   
   在webpack指令后加上 *--watch* 参数即可
   
@@ -109,6 +111,15 @@ webpack 中有几个不同的选项, 可以帮助我们的代码发生变化后�
 
   还可以通过配置文件对watch的参数进行修改
 
+  ```
+  const path = require('path')
+
+  module.exports = {
+      
+      watch: true
+  }
+
+  ```
 
 
 
