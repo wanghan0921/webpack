@@ -42,6 +42,27 @@ webpack有四大核心概念:
  + 插件(plugins): 插件目的在于解决loader无法实现的其他事情
  
  
+ ```
+ const path = require('path')
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        //  path.resolve() 解析当前相对路径的绝对路径
+        // path: path.resolve('./dist/'),
+
+
+        // path.join 传入两个参数 , (_dirname 当前根目录 , 相对路径) ,最后拼接成绝对路径
+        path: path.join(__dirname, './dist/'),
+
+        // 文件输出的名字
+        filename: 'wanghan.js'
+    },
+    mode: 'production'  // 默认是production , 可以手动设置为development , 区别就是是否可以进行压缩混淆
+}
+
+ ```
+ 
 
 
 
