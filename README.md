@@ -76,10 +76,7 @@ module.exports = {
    },
    ```
    
-   然后我们执行
-   ```
-   npm run build
-   ```
+   然后我们执行 **npm run build** 即可
 
 
 
