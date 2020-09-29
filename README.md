@@ -41,7 +41,7 @@ webpack有四大核心概念:
  
  + 插件(plugins): 插件目的在于解决loader无法实现的其他事情
  
- 
+ webpack.config.js
  ```
  const path = require('path')
 
@@ -63,8 +63,9 @@ module.exports = {
 
  ```
  
+1. npx webpack打包 , 默认选的配置文件webpack.config.js
 
-
+   我们也可以自定义打包配置文件件,  如要换选用其他的配置文件 , npx webpack --config webpack.new.config.js
 
 
 
