@@ -73,7 +73,7 @@ module.exports = {
    "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.new.config.js"
-  },
+   },
    ```
    
    然后我们执行
