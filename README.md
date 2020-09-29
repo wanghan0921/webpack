@@ -66,6 +66,20 @@ module.exports = {
 1. npx webpack打包 , 默认选的配置文件webpack.config.js
 
    我们也可以自定义打包配置文件件,  如要换选用其他的配置文件 , npx webpack --config webpack.new.config.js
+   
+2. 但是每次如果切换打包配置文件 , 命令文件过于长了点 , 我们可以在package.json文件中配置命令
+
+   ```
+   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.new.config.js"
+  },
+   ```
+   
+   然后我们执行
+   ```
+   npm run build
+   ```
 
 
 
