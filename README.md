@@ -82,6 +82,18 @@ module.exports = {
 
 
 
+#### 2.3 开发时自动编译工具
+
+每次要编译代码时, 手动运行 *npm run build* 就会变得很麻烦
+
+webpack 中有几个不同的选项, 可以帮助我们的代码发生变化后自动编译代码
+
+1. webpack's Wacth Mode  监视模式
+2. webpack-dev-server  推荐~~
+3. webpack-dev-middleware  中间键
+
+多数场景中 , 可能需要使用的 *webpack-dev-server* , 但是不同的方式都可以了解一下 
+
 
 
 
