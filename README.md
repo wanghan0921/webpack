@@ -14,4 +14,17 @@
     npm i webpack webpack-cli -D
    ```
    
+### 2. webpack使用
+
+#### 2.1 webpack-cli
    
+npm 5.2以上的版本提供了一个npx命令
+
+npx 想要解决的主要问题, 就是调用项目内部安装的模块, 原理就是在node_modules下的.bin目录中找到对应的命令执行
+   ```
+   // 使用webpack 命令
+   npx webpack
+   ```
+webpack4.0之后 可以实现0配置打包, 0配置的特点就是限制较多 , 无法自定义很多内容 
+
+开发中常用的还是使用webpack配置进行打包构建
