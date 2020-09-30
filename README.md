@@ -120,8 +120,50 @@ webpack 中有几个不同的选项, 可以帮助我们的代码发生变化后�
   }
 
   ```
+  
+  
+  #### 2.3.2 webpack-dev-server
+  
+    1. 安装 *devServer* :
+       
+       devServer需要依赖webpack , 必须在项目中依赖安装webpack
+       
+       ```
+       npm i webpack-dev-server webpack -D
+       ```
+       
+    2. index.html中修改  <script src="/wanghan/js"></script>
 
+    3. 运行 **npm webpack-dev-server**
 
+    4. 运行 **npx webpack-dev-server --hot --open --port 8090**
+    
+    5. 配置package.json的scripts: **"dev": "webpack-dev-server --hot --open --port 8090**
+    
+       + --contentBase
+       
+       *本地服务器默认打开根目录下的index.html文件 , 但是如果想要打开 src/index.html 或其他页面*
+       
+       *webpack-dev-server --contentBase ./src*
+       
+       + --open 自动开发
+       
+       + --port 配置端口
+       
+       + --hot 热模块替换
+       
+           不需要重新打包我们的文件 , 只需要像类似补丁的形式去更新我们变动的模块(打补丁)
+           
+       + --compress  压缩
+       
+    
+    6. 运行 **npm run dev**
+    
+      devServer会在内存中生成一个打包好的wanghan.js文件, 专供开发时使用 , 打包效率非常高 , 修改代码后会自动打包以及刷新浏览器 , 用户体验非常好   
+    
+      以上是cli的方式设置devServer的参数
+    
+       还可以通过配置文件对devServer的参数进行修改
 
 
 
