@@ -90,7 +90,7 @@ webpack 中有几个不同的选项, 可以帮助我们的代码发生变化后�
 
 1. webpack's Wacth Mode  监视模式
 2. webpack-dev-server  推荐~~
-3. webpack-dev-middleware  中间键
+3. webpack-dev-middleware  中间件
 
 多数场景中 , 可能需要使用的 *webpack-dev-server* , 但是不同的方式都可以了解一下 
 
@@ -211,6 +211,51 @@ webpack 中有几个不同的选项, 可以帮助我们的代码发生变化后�
       
       + build时, 打包时自动生成index.html
       
+      
+ #### 2.3.4 webpack-dev-middleware
+ 
+ *webpack-dev-middleware* 是一个容器(wrapper) , 它可以把webpack处理后的文件传递给一个服务器(server).
+ 
+ *webpack-dev-server* 在内部使用了它, 同时 , 它也可以作为一个单独的包来使用 , 以便进行更多的自定义的设置来实现更多的需求.
+ 
+  1. 安装 express 和 webpack-dev-middleware: 
+  
+    ```
+    npm i express webpack-dev-middleware -D
+    ```
+  
+  2. 新建server.js
+  
+  ```
+  const  express = require('express')
+
+  const webpack = require('webpack')
+
+  const webpackDevMiddleWare = require('webpack-dev-middleware')
+
+  const config = require('./webpack.config.js')
+
+  const app = express()
+
+  const compiler = webpack(config)
+
+  app.use(webpackDevMiddleWare(compiler, {
+      publicPath: '/'
+  }))
+
+  app.listen(3000, function() {
+      console.log('http://localhost:3000')
+  })
+  ```
+  
+  3. 配置package.json中的scripts : *"server" : "node server.js"*
+  
+  4. 运行 *npm run server*
+  
+  *注意: 如果要使用middleware, 必要要使用 html-webpack-plugin 插件, 否则html文件无法正常的输出到express服务器的根目录*
+  
+  接下来 我们要对webpack的配置文件做一些调整 , 以确保中间件(middleware)功能能够正确启用
+  
 
 
 
