@@ -1,4 +1,4 @@
-# webpack
+# webpack入门
 
 ## 1. webpack安装
 
@@ -255,6 +255,18 @@ webpack 中有几个不同的选项, 可以帮助我们的代码发生变化后�
   *注意: 如果要使用middleware, 必要要使用 html-webpack-plugin 插件, 否则html文件无法正常的输出到express服务器的根目录*
   
   接下来 我们要对webpack的配置文件做一些调整 , 以确保中间件(middleware)功能能够正确启用
+  
+  
+  
+  
+##小结
+
+只有在开发时才需要使用自动编译工具 , 例如 webpack-dev-server
+
+项目上线时都会直接使用webpack进行打包构建 , 不需要使用这些自动编译工具 
+
+自动编译工具只是为了 **提高开发体验** 
+  
   
 
 
