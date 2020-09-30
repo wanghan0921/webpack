@@ -182,11 +182,35 @@ webpack 中有几个不同的选项, 可以帮助我们的代码发生变化后�
     }
 
    ```
+   
+   
+   #### 2.3.3 html插件
 
+ 1. 安装html-webpack-plugin插件 *npm i html-webpack-plugin -D*
+   
+ 2. 在 *webpack.config.js* 中的plugin节点下配置
+   
+   
+    ```
+    const HtmlWabpackPlugin = require('html-webpack-plugin')
+    
+    plugins: [
+        new HtmlWabpackPlugin({
+            filename: 'index.html',
+            tamplate: './src/index.html'
+        })
+    ]
 
-
-
-
+    ```
+    
+    **作用:**
+    
+      + devServer时, 根据模板在项目根目录下生成html文件 , 类似于devServer生成内存中的wanghan.js
+      
+      + devServer时, 自动打包引入 wanghan.js
+      
+      + build时, 打包时自动生成index.html
+      
 
 
 
