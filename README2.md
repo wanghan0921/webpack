@@ -27,5 +27,24 @@
    * css-loader * : 解析css文件
      
    * style-loader * : 将解析出来的文件放在html中,使其生效
+   
+ 
+ ## 2. 处理 less 和 sass 
+ 
+   1. 安装 *npm i less less-loader -D*
+   
+   2. 安装 *npm i node-sass sass-loader -D*
+   
+   ```
+      {
+          test: /\.less$/,
+          use: ['style-loader', 'css-loader', 'less-loader']
+      },
+      {
+          test: /\.s(a|c)ss$/,
+          use: ['style-loader', 'css-loader', 'sass-loader']
+      }
+   ```
+   
 
 
