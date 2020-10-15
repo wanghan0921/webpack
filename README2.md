@@ -46,5 +46,36 @@
       }
    ```
    
+ ## 3. 处理 图片 和 字体
+ 
+   1. 安装 *npm i file-loader -D*
+   
+   ```
+   {
+       test: /\.(png|jpg|gif)$/,
+       use: 'file-loader'
+   },
+   {
+       test: /\.(woff|svg|woff2|ttf|eot)$/,
+       use: 'file-loader'
+   }
+   ```
+  
+  2. 更进一步 安装 *npm i url-loader -D*
+  
+     > 安装 url-loader 之前, 需要先安装 file-loader
 
-
+   ```
+   {
+       test: /\.(png|jpg|gif)$/,
+       use: {
+           loader: 'url-loader',
+           options: {
+               // 图片小于5kb时, 会转化成base64
+               // base64的体积会比原图大30%左右 , 但是base64不用额外请求 , 所以当图片体积较小(一般不超过5kb)时 , 转成base64格式
+               // 图片体积大于 5kb 时 , 就以路径的形式展示
+               limit: 5 * 1024
+           }
+       }
+   },
+   ```
