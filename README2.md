@@ -83,3 +83,13 @@
        }
    },
    ```
+   
+   ## 4. babel
+   
+      1. *npm i babel-loader @babel/core @babel/preset-env webpack -D*
+      
+      2. 如果需要支持更高级的ES6语法 , 可以继续安装插件:
+      
+         *npm i @babel/plugin-proposal-class0properties -D*
+         
+         也可以根据需要在babel官网找插件进行安装
