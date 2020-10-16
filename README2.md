@@ -86,10 +86,27 @@
    
    ## 4. babel
    
-      1. *npm i babel-loader @babel/core @babel/preset-env webpack -D*
+   1. *npm i babel-loader @babel/core @babel/preset-env webpack -D*
+   
+       @babel/core babel 核心
+       
+       @babel/preset-env 预设
       
-      2. 如果需要支持更高级的ES6语法 , 可以继续安装插件:
+   2. 如果需要支持更高级的ES6语法 , 可以继续安装插件:
       
          *npm i @babel/plugin-proposal-class0properties -D*
          
          也可以根据需要在babel官网找插件进行安装
+         
+    ```
+    {
+       test: /\.js$/,
+       use: {
+           loader: 'babel-loader',
+           options: {
+               // 预设
+               presets: ['@babel/env']
+           }
+       }
+    }
+    ```
