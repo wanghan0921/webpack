@@ -105,8 +105,11 @@
            loader: 'babel-loader',
            options: {
                // 预设
-               presets: ['@babel/env']
+               presets: ['@babel/env'],
+               plugins: ['@babel/plugin-syntax-class-properties', 'transform-class-properties']
            }
-       }
+       },
+       // 排除js文件 , 不打包
+       exclude: /node_modules/
     }
     ```
