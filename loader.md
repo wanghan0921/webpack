@@ -113,6 +113,44 @@
              exclude: /node_modules/
           }
           ```
+          
+       babel更推荐把配置单独写一个文件 .babelrc
+       
+       webpack.config.js
+       
+       ```
+       {
+          test: /\.js$/,
+          use: {
+              loader: 'babel-loader',
+              // options: {
+              //     // 预设
+              //     presets: ['@babel/env'],
+              //     plugins: [
+              //         '@babel/plugin-syntax-class-properties',
+              //         'transform-class-properties',
+              //         '@babel/plugin-transform-runtime'
+              //     ]
+              // }
+          },
+          // 排除js文件 , 不打包
+          exclude: /node_modules/
+       }
+       ```
+       .babelrc (json格式)
+       
+       ```
+         {
+             "presets": ["@babel/env"],
+             "plugins": [
+                 "@babel/plugin-syntax-class-properties",
+                 "transform-class-properties",
+                 "@babel/plugin-transform-runtime"
+             ]
+         }
+       
+       ```
+       
          
    3. 如果需要使用[Generator](http://www.ruanyifeng.com/blog/2015/04/generator.html), 无法直接使用babel进行转换,因为会将generator转化为一个
       regeneratorRuntime, 然后使用mark和wrap来实现regenerator , 但由于babel并没有内置regeneratorRuntime , 所以无法直接使用
