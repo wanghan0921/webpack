@@ -184,3 +184,41 @@
              exclude: /node_modules/
          }
          ```
+         
+   4. 如果需要使用es6/7中对象原型提供的新方法, babel默认情况无法转换, 即使用了 *transform-runtime* 的插件也不支持转换原型上的方法
+   
+      需要使用另一个模块: 
+      
+      *npm i @babel/polyfill -S*
+      
+      该模块需要在使用新方法的地方直接引入
+      
+      ```
+      import '@babel/polyfill'
+      ```
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
