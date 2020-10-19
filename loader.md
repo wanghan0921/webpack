@@ -121,7 +121,7 @@
 
          *npm i @babel/plugin-transform-runtime -D*
 
-         同时还需要安装插件:
+         同时还需要安装运行时依赖:
 
          *npm i @babel/runtime -D*
 
