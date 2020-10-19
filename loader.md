@@ -198,9 +198,57 @@
       ```
    
    
+## 4. source map使用
+
+   1. devtool
    
-   
-   
+      此选项控制是否生成，以及如何生成 source map。
+
+      使用 [`SourceMapDevToolPlugin`](/plugins/source-map-dev-tool-plugin) 进行更细粒度的配置。查看 [`source-map-loader`](/loaders/source-map-loader) 来处理已有的 source map。
+
+
+## `devtool` {#devtool}
+
+`string` `false`
+
+   选择一种 [source map](http://blog.teamtreehouse.com/introduction-source-maps) 格式来增强调试过程。不同的值会明显影响到构建(build)和重新构建(rebuild)的速度。
+
+   webpack 仓库中包含一个 [显示所有 `devtool` 变体效果的示例](https://github.com/webpack/webpack/tree/master/examples/source-map)。这些例子或许会有助于你理解这些差异之处。
+
+  你可以直接使用 `SourceMapDevToolPlugin`/`EvalSourceMapDevToolPlugin` 来替代使用 `devtool` 选项，因为它有更多的选项。切勿同时使用 `devtool` 选项和 `SourceMapDevToolPlugin`/`EvalSourceMapDevToolPlugin` 插件。`devtool` 选项在内部添加过这些插件，所以你最终将应用两次插件。
+
+   devtool                                  | 构建速度 | 重新构建速度 | 生产环境 | 品质(quality)
+   ---------------------------------------- | ------- | ------- | ---------- | -----------------------------
+   (none)                                   | 非常快速 | 非常快速  | yes        | 打包后的代码
+   eval                                     | 非常快速 | 非常快速  | no         | 生成后的代码
+   eval-cheap-source-map                    | 比较快   | 快速     | no         | 转换过的代码（仅限行）
+   eval-cheap-module-source-map             | 中等     | 快速     | no         | 原始源代码（仅限行）
+   eval-source-map                          | 慢      | 比较快   | no         | 原始源代码
+   eval-nosources-source-map                |         |         |            |
+   eval-nosources-cheap-source-map          |         |         |            |
+   eval-nosources-cheap-module-source-map   |         |         |            |
+   cheap-source-map                         | 比较快   | 中等     | yes        | 转换过的代码（仅限行）
+   cheap-module-source-map                  | 中等     | 比较慢   | yes        | 原始源代码（仅限行）
+   inline-cheap-source-map                  | 比较快   | 中等     | no         | 转换过的代码（仅限行）
+   inline-cheap-module-source-map           | 中等     | 比较慢   | no         | 原始源代码（仅限行）
+   inline-source-map                        | 慢      | 慢       | no         | 原始源代码
+   inline-nosources-source-map              |         |         |            |
+   inline-nosources-cheap-source-map        |         |         |            |
+   inline-nosources-cheap-module-source-map |         |         |            |
+   source-map                               | 慢      | 慢       | yes        | 原始源代码
+   hidden-source-map                        | 慢      | 慢       | yes        | 原始源代码
+   hidden-nosources-source-map              |         |         |            |
+   hidden-nosources-cheap-source-map        |         |         |            |
+   hidden-nosources-cheap-module-source-map |         |         |            |
+   hidden-cheap-source-map                  |         |         |            |
+   hidden-cheap-module-source-map           |         |         |            |
+   nosources-source-map                     | 慢      | 慢       | yes        | 无源代码内容
+   nosources-cheap-source-map               |         |         |            |
+   nosources-cheap-module-source-map        |         |         |            |
+
+  验证 devtool 名称时， 我们期望使用某种模式， 注意不要混淆 devtool 字符串的顺序， 模式是： `[inline-|hidden-|eval-][nosources-][cheap-[module-]]source-map`.
+
+  其中一些值适用于开发环境，一些适用于生产环境。对于开发环境，通常希望更快速的 source map，需要添加到 bundle 中以增加体积为代价，但是对于生产环境，则希望更精准的 source map，需要从 bundle 中分离并独立存在。
    
    
    
