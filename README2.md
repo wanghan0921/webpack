@@ -98,18 +98,51 @@
          
          也可以根据需要在babel官网找插件进行安装
          
-    ```
-    {
-       test: /\.js$/,
-       use: {
-           loader: 'babel-loader',
-           options: {
-               // 预设
-               presets: ['@babel/env'],
-               plugins: ['@babel/plugin-syntax-class-properties', 'transform-class-properties']
-           }
-       },
-       // 排除js文件 , 不打包
-       exclude: /node_modules/
-    }
-    ```
+          ```
+          {
+             test: /\.js$/,
+             use: {
+                 loader: 'babel-loader',
+                 options: {
+                     // 预设
+                     presets: ['@babel/env'],
+                     plugins: ['@babel/plugin-syntax-class-properties', 'transform-class-properties']
+                 }
+             },
+             // 排除js文件 , 不打包
+             exclude: /node_modules/
+          }
+          ```
+         
+   3. 如果需要使用[Generator](http://www.ruanyifeng.com/blog/2015/04/generator.html), 无法直接使用babel进行转换,因为会将generator转化为一个
+      regeneratorRuntime, 然后使用mark和wrap来实现regenerator , 但由于babel并没有内置regeneratorRuntime , 所以无法直接使用
+      
+         需要安装插件 :
+
+         *npm i @babel/plugin-transform-runtime -D*
+
+         同时还需要安装插件:
+
+         *npm i @babel/runtime -D*
+
+         在.babelrc中添加插件:
+
+         ```
+         {
+             test: /\.js$/,
+             use: {
+                 loader: 'babel-loader',
+                 options: {
+                     // 预设
+                     presets: ['@babel/env'],
+                     plugins: [
+                         '@babel/plugin-syntax-class-properties',
+                         'transform-class-properties',
+                         '@babel/plugin-transform-runtime'
+                     ]
+                 }
+             },
+             // 排除js文件 , 不打包
+             exclude: /node_modules/
+         }
+         ```
