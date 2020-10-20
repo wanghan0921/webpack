@@ -272,6 +272,56 @@
    
    4.使用 eval-source-map 模式可以减少网络请求. 这种模式开启DataUrl 本身包含完整的 source map信息, 并不需要想 sourceUrl那样 , 浏览器需要发送一个      完整的请求去获取 sourcemap 文件, 这会略微提高一点效率. 但是生产环境中就不适用了 , 因为这样会让文件变得很大
    
+
+## 5. 插件
+
+   #### 1. clean-webpack-plugin
+   
+   该插件可以用于自动清除dist目录后重新生成 . 在*npm run build*时非常方便
+   
+   1. 安装插件 
+   
+   *npm i clean-webpack-plugin -D*
+   
+   2. 引入
+   
+   *const { CleanWebpackPlugin } = require('clean-webpack-plugin')*
+   
+   3. 使用插件,在plugin中直接创建对象即可
+   
+   ```
+   plugins: [
+        new HtmlWabpackPlugin({
+            filename: 'index.html',
+            template: './src/index.html'
+        }),
+        new CleanWebpackPlugin()
+    ],
+   ```
+   
+   #### 2. copy-webpack-plugin
+   
+   1. 安装插件 
+   
+   *npm i copy-webpack-plugin -D*
+   
+   2. 引入
+   
+   *const { CopyWebpackPlugin } = require('copy-webpack-plugin')*
+   
+   3. 使用插件,在plugin中直接创建对象并配置源和目标
+   
+   form: 源, 从哪里拷贝, 可以使相对路径或绝对路劲, 推荐绝对路径
+   
+   to: 目标, 拷贝到哪里去, 相对于output的路劲, 同样可以使绝对路径或相对路径, 但更推荐相对路径
+   
+   ```
+   new CopyWebpackPlugin({
+            patterns:[
+               { from: path.join(__dirname, 'assets'), to: 'assets' }
+            ]
+        })
+   ```
    
    
    
