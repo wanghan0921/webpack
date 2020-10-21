@@ -65,3 +65,35 @@
         new webpack.BannerPlugin('涂心仪')
     ],
     ```
+    
+    
+ ## 3. 多页应用打包
+ 
+  可以通过*expose-loader*进行全局变量注入, 
+  
+  同时也可以使用内置插件 *webpack.ProvidePlugin*对每个模块的闭包空间注入一个变量, 自动加载模块, 而不必到处 import 或 require
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
