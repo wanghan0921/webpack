@@ -324,6 +324,22 @@
    ```
    
    
+   #### 3. BannerPlugin
+   
+   这是一个webpack的内置插件, 用于给打包的js文件加上版权注释信息
+   
+   1. 引入webpack插件
+    
+    ```
+    const webpack = require('webpack')
+    ```
+    
+   2. 创建插件对象
+   
+      ```
+      new webpack.BannerPlugin('涂心仪')
+      ```
+   
    
    
    
