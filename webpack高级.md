@@ -73,6 +73,44 @@
   
   同时也可以使用内置插件 *webpack.ProvidePlugin*对每个模块的闭包空间注入一个变量, 自动加载模块, 而不必到处 import 或 require
   
+  + expose-loader将库引入到全局作用域
+  
+      1. 安装 *npm i expose-loader -D*
+      
+      2. 配置loader
+      
+      ```
+      {
+        // require.resolve找到jquery的绝对路径
+        test: require.resolve('jquery'),
+        use: {
+          loader: 'expose-loader',
+          options: '$'
+        }
+      }
+      ```
+      
+  + webpack.ProvidePlugin 将库自动加载到每个模块
+  
+    1. 引入webpack
+    
+      ```
+        const webpack = require('webpack')
+      ```
+      
+    2. 创建插件对象
+    
+    要自动加载jquery , 我们可以将两个变量都指向对应的node模块
+    
+    ```
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
+    ```
+      
+      
+  
   
   
   
