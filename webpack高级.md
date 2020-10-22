@@ -144,6 +144,28 @@
 
       ```
       
+ ## 5. 定义环境变量
+ 
+  除了区分不同的配置文件进行打包 , 还需要在开发时知道当前的环境是开发阶段或上线阶段, 所以可以借助webpack内置插件**DefinePlugin**来定义环境变量
+  
+  最终实现开发阶段和上线阶段的api的地址自动切换等目的
+  
+   1. 引入webpack
+   
+      ```
+      const Webpack = require('webpack')
+      ```
+      
+   2. 创建插件对象 ,并定义环境变量
+   
+      ```
+      new Webpack.DefinePlugin({
+        DEV: 'true'
+      })
+      ```
+      
+   3. 在src打包的代码环境下可以直接使用
+      
   
   
   
