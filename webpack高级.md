@@ -108,7 +108,27 @@
       jQuery: 'jquery'
     })
     ```
-      
+ 
+ 
+ ## 4. Development / Production 不同配置文件打包
+ 
+ 项目开始时一般需要使用两套或多套配置文件 , 用于开发阶段打包(不压缩代码, 不优化代码, 增加效率 ) 和 上线阶段打包 (压缩代码 , 优化代码 , 打包后直接上线使用)
+ 
+ 抽取三个文件 :
+ 
+   + webpack.base.js
+   
+   + webpack.prod.js
+   
+   + webpack,dev.js
+   
+  步骤如下: 
+  
+   1. 将开发环境和生产环境公用的配置放入base中, 不同的配置各自放入prod或dev文件中
+   
+   2. 然后再dev和prod中使用webpack-merge把自己的配置与base的配置进行合并后导出
+   
+   3. 将package.json中的脚本参数进行修改, 通过 *--config* 手动指定特定的配置文件
       
   
   
