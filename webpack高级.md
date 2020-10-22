@@ -128,7 +128,21 @@
    
    2. 然后再dev和prod中使用webpack-merge把自己的配置与base的配置进行合并后导出
    
+      *npm i webpack-merge -D*
+   
    3. 将package.json中的脚本参数进行修改, 通过 *--config* 手动指定特定的配置文件
+   
+      ```
+      const {merge} = require('webpack-merge')
+
+      const baseConfig = require('./webpack.base.js')
+
+      module.exports = merge(baseConfig, {
+          mode: 'production',
+          devtool: 'cheap-module-source-map'
+      })
+
+      ```
       
   
   
