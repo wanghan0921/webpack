@@ -194,6 +194,11 @@
    自然也不涉及跨域问题 , 可以完美解决!
    
    [devServer-proxy](https://webpack.js.org/configuration/dev-server/#devserverproxy)
+   
+   
+## 6. HMR
+
+  [HMR](https://webpack.js.org/guides/hot-module-replacement/)
   
   
   
