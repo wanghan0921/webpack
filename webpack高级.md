@@ -165,7 +165,35 @@
       ```
       
    3. 在src打包的代码环境下可以直接使用
-      
+   
+   
+  ## 6. 使用devServer解决跨域问题
+  
+  在开发阶段很多时间需要使用到跨域 
+  
+  **跨域** 受制于浏览器的同源策略 , 所谓同源是指 , 域名 , 端口 , 协议 相同
+  
+  开发阶段往往会遇到上面这种情况 , 也许将来上线后 , 前端项目会和后端项目部署在同一个服务器下 , 并不会有跨域问题 , 
+  
+  但由于开发时会用到 webpakc-dev-server, 所以一定会有跨域问题
+  
+  目前解决跨域主要的方案有 : 
+  
+     + jsonp (淘汰)
+     
+     + cors
+     
+     + http proxy
+     
+   此处介绍的使用devServer解决跨域, 其实原理就是 http proxy
+   
+   将所有的ajax请求发送给devServer服务器 , 再由devServer服务器做一次转发 , 发送给数据接口服务器
+   
+   由于ajax请求是发送给devServer服务器的 , 所以不存在跨域问题 , 而devServer由于是用node平台发送的http请求 ,
+   
+   自然也不涉及跨域问题 , 可以完美解决!
+   
+   [devServer-proxy](https://webpack.js.org/configuration/dev-server/#devserverproxy)
   
   
   
