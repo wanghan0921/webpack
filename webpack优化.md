@@ -88,7 +88,48 @@
       },
       ```
     
+## 3. 自动添加css前缀
+  
+  使用postcss, 需要用到 postcss-loader 和 autoprefixer 插件
     
+  1. 安装 
+  
+    ```
+     npm i -D postcss-loader autoprefixer
+    ```
+    
+  2. 修改webpack配置文件中的loader , 将 postcss-loader 放置在css-loader的右边(调用链是从右往左)
+  
+    ```
+    {
+        // 用正则匹配当前访问的文件的后缀名是 .css
+        test: /\.css$/,
+        // webpack底层调用这些包的顺序是从右到左
+        // loader的执行顺序是从右到左以管道的方式链式调用
+        // css-loader 接续css文件
+        // style-loader 将解析出来的文件放在html中,使其生效
+        // use: ['style-loader', 'css-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+    },
+    {
+        test: /\.less$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader']
+    },
+    {
+        test: /\.s(a|c)ss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader']
+    }
+    ```
+    
+  3. 项目根目录下添加postcss的配置文件: postcss.config.js
+  
+  4. 在postcss的配置文件中使用插件
+  
+    ```
+    module.exports = {
+        plugin: [require('qutoprefixer')]
+    }
+    ```
     
     
     
