@@ -355,9 +355,9 @@
     
    2. 创建插件对象
    
-      ```
+    ```
       new webpack.HotModuleReplacementPlugin()
-      ```
+    ```
    
    
    
