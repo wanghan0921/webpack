@@ -341,6 +341,24 @@
       ```
    
    
+   #### 4. HotModuleReplacementPlugin
+   
+   这是一个webpack的内置插件, 可以在我们修改样式时，更新页面中标签的样式效果而不用刷新整个页面，这个需要配合webpack-dev-server一起用
+   
+   这个插件成为HMR， 热更新
+   
+   1. 引入webpack插件
+    
+    ```
+    const webpack = require('webpack')
+    ```
+    
+   2. 创建插件对象
+   
+      ```
+      new webpack.HotModuleReplacementPlugin()
+      ```
+   
    
    
    
