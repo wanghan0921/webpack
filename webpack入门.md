@@ -197,7 +197,7 @@ webpack 中有几个不同的选项, 可以帮助我们的代码发生变化后�
     plugins: [
         new HtmlWabpackPlugin({
             filename: 'index.html',
-            tamplate: './src/index.html'
+            template: './src/index.html'
         })
     ]
 
